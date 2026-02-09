@@ -23,7 +23,6 @@
       overflow: hidden;
     }
 
-    /* Fondo animado suave */
     .bg-gradient {
       position: fixed;
       inset: -20%;
@@ -46,7 +45,7 @@
       position: relative;
       width: 100%;
       max-width: 960px;
-      padding: 16px;
+      padding: 12px;
       z-index: 2;
       display: flex;
       align-items: center;
@@ -55,26 +54,26 @@
 
     .card {
       width: 100%;
-      max-width: 720px;
-      background: rgba(10, 10, 25, 0.92);
+      max-width: 480px;
+      background: rgba(10, 10, 25, 0.94);
       background-image:
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 55%),
         radial-gradient(circle at bottom right, rgba(255, 20, 147, 0.25), transparent 60%);
-      border-radius: 24px;
-      padding: 28px 24px 26px;
+      border-radius: 20px;
+      padding: 20px 18px 18px;
       box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.9),
+        0 18px 50px rgba(0, 0, 0, 0.9),
         0 0 0 1px rgba(255, 255, 255, 0.04);
       position: relative;
       overflow: hidden;
       transform-origin: center;
-      animation: popIn 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      animation: popIn 0.7s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     @keyframes popIn {
       from {
         opacity: 0;
-        transform: translateY(30px) scale(0.96);
+        transform: translateY(26px) scale(0.96);
       }
       to {
         opacity: 1;
@@ -83,14 +82,16 @@
     }
 
     .card::before {
-      content: "Siempre en mi corazón";
+      content: "Siempre en mi corazón 💔";
       position: absolute;
-      inset: 12% 4%;
-      font-size: 32px;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      font-size: 16px;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.02);
-      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.06);
       pointer-events: none;
+      white-space: nowrap;
     }
 
     .content {
@@ -98,29 +99,28 @@
       z-index: 1;
     }
 
-    /* Pills / música */
     .music-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       border-radius: 999px;
       background: rgba(8, 8, 18, 0.9);
       color: #f5f5f5;
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
       user-select: none;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.05),
-        0 10px 25px rgba(0, 0, 0, 0.65);
+        0 10px 22px rgba(0, 0, 0, 0.7);
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
 
     .music-pill:hover {
       transform: translateY(-1px);
       box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.8),
+        0 14px 30px rgba(0, 0, 0, 0.85),
         0 0 0 1px rgba(255, 255, 255, 0.08);
       background: rgba(12, 12, 30, 0.98);
     }
@@ -155,57 +155,42 @@
     }
 
     h1 {
-      margin: 4px 0 18px;
-      font-size: 30px;
+      margin: 2px 0 12px;
+      font-size: 22px;
       font-weight: 650;
       font-style: italic;
     }
 
     .body-text p {
-      margin: 6px 0;
-      line-height: 1.7;
-      font-size: 15px;
-      color: #e8e8fb;
+      margin: 4px 0;
+      line-height: 1.6;
+      font-size: 14px;
+      color: #ecebff;
     }
 
     .body-text p + p {
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .signature {
-      margin-top: 18px;
+      margin-top: 14px;
       font-style: italic;
-      font-size: 14px;
+      font-size: 13px;
       color: #d1c9ff;
     }
 
-    /* Mejor lectura en celular */
-    @media (max-width: 640px) {
-      body {
-        padding: 10px;
-      }
-
+    @media (min-width: 720px) {
       .card {
-        padding: 22px 18px 20px;
-        border-radius: 20px;
-      }
-
-      .card::before {
-        inset: 60% 8% auto;
-        font-size: 24px;
+        max-width: 640px;
+        padding: 26px 26px 24px;
       }
 
       h1 {
-        font-size: 24px;
+        font-size: 26px;
       }
 
       .body-text p {
-        font-size: 14px;
-      }
-
-      .music-pill {
-        font-size: 12px;
-        padding: 7px 12px;
+        font-size: 15px;
       }
     }
   </style>
@@ -222,14 +207,14 @@
           <span class="music-title" id="playLabel">♫ Gustarme Tanto</span>
         </div>
 
-        <h1>Mi vida,</h1>
+        <h1>Mi vida 💞</h1>
 
         <div class="body-text">
           <p>sé que quizás ya no crees en el amor, o que te han lastimado tanto que ahora todo te pesa.</p>
           <p>Aun así, lo único que deseo es ser la persona que se quede a tu lado cuando todos se vayan, aunque el mundo se caiga y aunque nosotros dos no tengamos un nombre. Lo que siento por ti es tan grande que no me entra en el pecho.</p>
-          <p>Pero si ya no me quieres, si hablar conmigo te duele o sientes que lo haces por compromiso, te suplico que me lo digas, aunque me rompas en mil pedazos. Prefiero escuchar tu verdad a seguir siendo una carga para ti. Si hay algo que hice, si hay algo que te hirió, quiero escucharlo de tu boca.</p>
+          <p>Pero si ya no me quieres, si hablar conmigo te duele o sientes que lo haces por compromiso, te suplico que me lo digas, aunque me rompas en mil pedazos. Prefiero escuchar tu verdad a seguir siendo una carga para ti. Si hay algo que hice, si hay algo que te hirió, quiero escucharlo de tu boca 🫂.</p>
           <p>Solo quiero que estés bien, incluso si eso significa que yo no esté en tu vida. Y si soy la razón por la que te sientes así –que en el fondo sé que puede ser así–, de corazón te pido perdón por no estar a tu lado en este momento en el que más lo necesitas.</p>
-          <p>Aunque no te lo diga todo el tiempo, te amo más de lo que imaginas, y por más que duela, sigues guardada en lo más profundo de mi corazón, mi princesa.</p>
+          <p>Aunque no te lo diga todo el tiempo, te amo más de lo que imaginas, y por más que duela, sigues guardada en lo más profundo de mi corazón, mi princesa 💌.</p>
         </div>
 
         <p class="signature">Con todo lo que siento por ti, tu peque.</p>
@@ -279,4 +264,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
