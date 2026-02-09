@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi princesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #050510 0%, #0b1024 50%, #050510 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f5f5f5;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      z-index: 5;
+    }
+
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #252542 0, #151528 40%, #090915 100%);
+      backdrop-filter: blur(12px);
+      border-radius: 26px;
+      padding: 42px 46px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(255, 20, 147, 0.16) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .bg-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.04);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .music-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(9, 9, 20, 0.82);
+      color: #f5f5f5;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 24px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+      transition: all 0.25s ease;
+    }
+
+    .music-pill:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.10);
+    }
+
+    .music-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ff2e88;
+      box-shadow: 0 0 12px rgba(255, 46, 136, 0.9);
+    }
+
+    .music-title {
+      opacity: 0.9;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 34px;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      margin: 6px 0;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #e9e9f3;
+    }
+
+    .signature {
+      margin-top: 26px;
+      font-style: italic;
+      color: #c9c9ff;
+    }
+
+    #sc-container {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 28px 22px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .bg-text {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="bg-text">Siempre en mi corazón.</div>
+
+      <div class="content">
+        <div class="music-pill" id="playToggle">
+          <span class="music-dot"></span>
+          <span class="music-title" id="playLabel">♫ Gustarme Tanto</span>
+        </div>
+
+        <h1>Mi vida,</h1>
+
+        <p>sé que quizás ya no crees en el amor, o que te han lastimado tanto que ahora todo te pesa.</p>
+        <p>Aun así, lo único que deseo es ser la persona que se quede a tu lado cuando todos se vayan, aunque el mundo se caiga y aunque nosotros dos no tengamos un nombre. Lo que siento por ti es tan grande que no me entra en el pecho.</p>
+        <p>Pero si ya no me quieres, si hablar conmigo te duele o sientes que lo haces por compromiso, te suplico que me lo digas, aunque me rompas en mil pedazos. Prefiero escuchar tu verdad a seguir siendo una carga para ti. Si hay algo que hice, si hay algo que te hirió, quiero escucharlo de tu boca.</p>
+        <p>Solo quiero que estés bien, incluso si eso significa que yo no esté en tu vida. Y si soy la razón por la que te sientes así –que en el fondo sé que puede ser así–, de corazón te pido perdón por no estar a tu lado en este momento en el que más lo necesitas.</p>
+        <p>Aunque no te lo diga todo el tiempo, te amo más de lo que imaginas, y por más que duela, sigues guardada en lo más profundo de mi corazón, mi princesa.</p>
+
+        <p class="signature">Con todo lo que siento por ti, tu peque.</p>
+      </div>
+
+      <!-- Player SoundCloud oculto (música nueva) -->
+      <div id="sc-container">
+        <iframe
+          id="sc-widget"
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/derekkingsleague10/gustarme-tanto%3Fsi%3D58389088ac9349dc83d5b874af2cf209&color=%23ff1493&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+
+  <script>
+    const toggle = document.getElementById("playToggle");
+    const label = document.getElementById("playLabel");
+    const iframe = document.getElementById("sc-widget");
+    const widget = SC.Widget(iframe);
+    let isPlaying = false;
+
+    toggle.addEventListener("click", () => {
+      if (!isPlaying) {
+        widget.play();
+        isPlaying = true;
+        label.textContent = "⏸ Pausar canción";
+        toggle.classList.add("playing");
+      } else {
+        widget.pause();
+        isPlaying = false;
+        label.textContent = "♫ Gustarme Tanto";
+        toggle.classList.remove("playing");
+      }
+    });
+
+    widget.bind(SC.Widget.Events.FINISH, () => {
+      isPlaying = false;
+      label.textContent = "♫ Gustarme Tanto";
+      toggle.classList.remove("playing");
+    });
+  </script>
+</body>
+</html>
